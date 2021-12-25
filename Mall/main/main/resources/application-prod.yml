@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.24.190.164:3306/test?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
+    username: root
+    password: 61F58eef6b67
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#    password
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    #控制台日志配置
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+logging:
+  pattern:
+    console: "[%thread] %-5level %logger{36} - %msg%n"
+server:
+  servlet:
+    session:
+#    session存在的时间是120s
+      timeout: 1200
+

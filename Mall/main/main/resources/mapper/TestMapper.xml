@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.malltest.dao.TestMapper">
+  <resultMap id="BaseResultMap" type="com.example.malltest.pojo.Test">
+    <result column="test" jdbcType="VARCHAR" property="test" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.malltest.pojo.Test">
+    insert into mall_test (test)
+    values (#{test,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.malltest.pojo.Test">
+    insert into mall_test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="test != null">
+        test,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="test != null">
+        #{test,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
